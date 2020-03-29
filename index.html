@@ -1,0 +1,943 @@
+<!DOCTYPE HTML>
+<!--
+
+Site de réservation de salles
+
+-->
+<html>
+	<head>
+		<title>MIELL</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
+		<link rel="shortcut icon" href="favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="js/modernizr-custom.js"></script>
+		
+		
+		
+	</head>
+	<body class="is-preload">	
+		
+		<svg class="hidden">
+			<defs>
+				<symbol id="icon-pin" viewBox="0 0 200 300">
+					<title>pin</title>
+					<path d="M100,21.78A85,85,0,0,0,15.18,106.6c0,18.85,12.08,49.52,36.76,93.9,17.48,31.36,34.7,57.49,35.47,58.6L100,278.22l12.59-19.11c0.69-1.11,18-27.25,35.47-58.6,24.76-44.38,36.76-75.06,36.76-93.9A85,85,0,0,0,100,21.78Z" />
+				</symbol>
+				<symbol id="icon-search" viewBox="0 0 32 32">
+					<title>search</title>
+					<path class="path1" d="M26.819 24.917c0.262 0.262 0.262 0.688 0 0.951l-0.951 0.951c-0.263 0.262-0.688 0.262-0.951 0l-6.656-6.656c-0.072-0.072-0.12-0.158-0.153-0.248-1.365 0.998-3.041 1.593-4.862 1.593-4.562 0-8.261-3.699-8.261-8.261s3.699-8.261 8.261-8.261c4.562 0 8.261 3.699 8.261 8.261 0 1.821-0.595 3.497-1.593 4.862 0.091 0.032 0.176 0.080 0.248 0.153l6.656 6.656zM13.246 7.739c-3.041 0-5.508 2.466-5.508 5.508s2.466 5.508 5.508 5.508 5.508-2.466 5.508-5.508c0-3.041-2.466-5.508-5.508-5.508z"></path>
+				</symbol>
+				<symbol id="icon-stack" viewBox="0 0 32 32">
+					<title>stack</title>
+					<path class="path1" d="M29.143 11.071l-13.143-6.571-13.143 6.571 13.143 6.571 13.143-6.571zM16 6.681l8.781 4.39-8.781 4.39-8.781-4.39 8.781-4.39zM26.51 14.684l2.633 1.316-13.143 6.571-13.143-6.571 2.633-1.316 10.51 5.255zM26.51 19.612l2.633 1.316-13.143 6.571-13.143-6.571 2.633-1.316 10.51 5.255z"></path>
+				</symbol>
+				<symbol id="icon-cross" viewBox="0 0 24 24">
+					<title>cross</title>
+					<path class="path1" d="M18.016 5.125q0.369 0 0.614 0.245t0.245 0.614q0 0.363-0.248 0.611l-5.411 5.405 5.411 5.405q0.248 0.248 0.248 0.611 0 0.369-0.245 0.614t-0.614 0.245q-0.363 0-0.611-0.248l-5.405-5.411-5.405 5.411q-0.248 0.248-0.611 0.248-0.369 0-0.614-0.245t-0.245-0.614q0-0.363 0.248-0.611l5.411-5.405-5.411-5.405q-0.248-0.248-0.248-0.611 0-0.369 0.245-0.614t0.614-0.245q0.363 0 0.611 0.248l5.405 5.411 5.405-5.411q0.248-0.248 0.611-0.248z"></path>
+				</symbol>
+				<symbol id="icon-droplet" viewBox="0 0 32 32">
+					<title>droplet</title>
+					<path class="path1" d="M27.020 14.786c-2.055-5.732-6.41-10.88-11.020-14.786-4.61 3.907-8.965 9.054-11.020 14.786-1.271 3.545-1.396 7.393 0.393 10.794 2.058 3.911 6.207 6.42 10.626 6.42s8.569-2.509 10.626-6.42c1.79-3.401 1.664-7.249 0.393-10.794zM23.086 23.717c-1.369 2.602-4.15 4.283-7.086 4.283-1.723 0-3.391-0.579-4.753-1.583 0.414 0.054 0.832 0.083 1.254 0.083 3.67 0 7.146-2.1 8.856-5.351 1.402-2.665 1.281-5.433 0.746-7.636 0.455 0.88 0.841 1.756 1.151 2.623 0.706 1.971 1.251 4.886-0.168 7.581z"></path>
+				</symbol>
+				
+				<symbol id="icon-books" viewBox="0 0 36 32">
+					<title>books</title>
+					<path class="path1" d="M7 4h-6c-0.55 0-1 0.45-1 1v22c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-22c0-0.55-0.45-1-1-1zM6 10h-4v-2h4v2z"></path>
+					<path class="path2" d="M17 4h-6c-0.55 0-1 0.45-1 1v22c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-22c0-0.55-0.45-1-1-1zM16 10h-4v-2h4v2z"></path>
+					<path class="path3" d="M23.909 5.546l-5.358 2.7c-0.491 0.247-0.691 0.852-0.443 1.343l8.999 17.861c0.247 0.491 0.852 0.691 1.343 0.443l5.358-2.7c0.491-0.247 0.691-0.852 0.443-1.343l-8.999-17.861c-0.247-0.491-0.852-0.691-1.343-0.443z"></path>
+				</symbol>
+				
+			</defs>
+		</svg>
+		
+		
+		
+		
+	
+		<!-- Wrapper -->
+			<div id="wrapper">
+			
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="iconify" data-icon="mdi:bee" data-inline="false"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>MIELL</h1>
+								<p><a href="https://html5up.net/license"></a> Réservation de salles</p>
+								<p>Consultation de votre emploi du temps</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#plan">Réserver</a></li>
+								<li><a href="#compte">Compte</a></li>
+								<li><a href="#salles">Salles</a></li>
+								<li><a href="#contact">Contact</a></li>
+								<!--<li><a href="#elements">Elements</a></li>-->
+							</ul>
+						</nav>
+						
+					</header>
+
+				<!-- Main -->
+					<div id="main" >
+						<!-- réservation -->
+							<article id="plan" style="height: 1000px">
+								<h2 class="major">Plan</h2>
+									<!--
+										<div id="map">
+											<iframe src="https://maps.wrld3d.com/embed/?mapscene=eb25368" width="1060" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+										</div>
+									-->
+				<!-- 3D map -->				
+
+				
+				<div class="main" style="width: 110%">
+
+
+					<div class="mall">
+						<div class="surroundings">
+							<img class="surroundings__map" src="img/surroundings.svg" alt="Surroundings"/>
+						</div>
+						<div class="levels">
+							<div class="level level--1" aria-label="Level 1">
+								<svg class="map map--1" viewBox="0 0 1200 800" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+									<title>Map Level 1</title>
+									<polygon points="1035.94 787.41 1035.94 423.16 855.37 423.16 855.37 350.52 1187.28 350.52 1187.28 12.59 548.09 12.59 548.09 68.87 437.36 68.87 437.36 12.59 49.37 12.59 49.37 366.5 12.72 366.5 12.72 787.41 356.2 787.41 414.93 584.41 554.4 584.41 627.81 787.41 1035.94 787.41" class="map__ground" />
+									<path d="M1187.28,12.59V350.52H855.37v72.64h180.58V787.41H627.81l-73.41-203H414.93l-58.73,203H12.72V366.5H49.37V12.59h388V68.87H548.08V12.59h639.19M1200,0H535.36V56.28H450.09V0H36.65V353.91H0V800H365.8l2.64-9.13L424.52,597H545.44l70.39,194.65,3,8.35h429.82V410.57H868.09V363.11H1200V0h0Z" class="map__outline" />
+									<path d="M425.68,198.63c-6.85-14.83-46.38-30.35-58-11.24-41.24,67.9-83.63,118.16-65.12,124.22,7.55,2.48,56.77.11,94.11-54.39,21.35-31.13,31.71-52.74,29-58.59h0Z" class="map__lake" />
+									<ellipse cx="389.64" cy="214.94" rx="13.95" ry="13.8" class="map__tree" />
+									<ellipse cx="369.54" cy="191.71" rx="13.95" ry="13.8" class="map__tree" />
+									<ellipse cx="354.59" cy="220.27" rx="13.95" ry="13.8" class="map__tree" />
+									<path d="M724.87,696.45c14.61,7.58,42.34-6.42,52.85-26.15,24.57-46.13-43.25-126.94-61.66-120.57-7.5,2.6-6.47,29.34-4.4,82.81C713.74,686.25,719.12,693.46,724.87,696.45Z" class="map__lake" />
+									<ellipse cx="738.82" cy="595.48" rx="13.95" ry="13.8" class="map__tree" />
+									<ellipse cx="768.46" cy="605.4" rx="13.95" ry="13.8" class="map__tree" />
+									<ellipse cx="744.64" cy="624.92" rx="13.95" ry="13.8" class="map__tree" />
+									<polygon data-space="1.04" points="874.9,554.3 874.9,422.9 1036.1,422.9 1036.1,576.6 965.2,576.6 965.2,555" class="map__space" />
+									<rect x="854.08" y="639.79" width="88.09" height="147.62" class="map__space" />
+									<rect x="947.85" y="639.79" width="88.09" height="147.62" class="map__space" />
+									<polygon points="768.46 722.99 789.65 735.1 789.65 759.31 768.46 771.42 747.27 759.31 747.27 735.1 768.46 722.99" class="map__space" />
+									<rect x="666.88" y="565.62" width="26.26" height="25.99" class="map__space" />
+									<rect data-space="1.07" x="716.66" y="354.39" width="110.72" height="136.73" class="map__space" />
+									<rect x="602.1" y="354.39" width="110.72" height="136.73" class="map__space" />
+									<path data-space="1.05" d="M454.76,266.19h63a24.34,24.34,0,0,1,24.47,24.21h0V489.82A24.34,24.34,0,0,1,517.74,514h-63a24.34,24.34,0,0,1-24.47-24.21h0V290.4a24.34,24.34,0,0,1,24.47-24.21h0Z" class="map__space" />
+									<path d="M492.72,123.19c30.57,0,55.36-24.53,55.36-54.78H437.36C437.36,98.67,462.15,123.19,492.72,123.19Z" class="map__space" />
+									<rect data-space="1.09" x="600" y="12.59" width="93.14" height="168.14" class="map__space" />
+									<rect data-space="1.08" x="698.07" y="12" width="93.14" height="168.14" class="map__space" />
+									<rect x="796.13" y="12" width="93.14" height="107.12" class="map__space" />
+									<rect x="894.18" y="12" width="93.14" height="107.12" class="map__space" />
+									<rect data-space="1.03" x="991.9" y="12" width="195.4" height="339.1" class="map__space" />
+									<rect x="602" y="278.06" width="385.71" height="72.46" class="map__space" />
+									<rect x="48.89" y="209.37" width="169.92" height="94.85" class="map__space" />
+									<rect data-space="1.02" x="49.12" y="110.57" width="254.49" height="94.85" class="map__space" />
+									<rect data-space="1.06" x="49.09" y="12.16" width="334.73" height="94.85" class="map__space" />
+									<polygon points="898.12 182.42 919.31 194.53 919.31 218.74 898.12 230.85 876.93 218.74 876.93 194.53 898.12 182.42" class="map__space" />
+									<polygon points="49.18 309.14 218.94 309.14 218.94 358.1 277.46 358.1 277.46 474.63 11.72 474.63 11.72 365.63 49.18 365.63 49.18 309.14" class="map__space" />
+									<polygon data-space="1.01" points="12.72 685.56 153.78 685.56 153.78 747.64 215.44 747.64 215.44 712.85 263.89 712.85 263.89 787.41 12.72 787.41 12.72 685.56" class="map__space" />
+									<rect x="48.08" y="501.73" width="35.61" height="35.23" class="map__space" />
+									<rect x="94.01" y="501.73" width="35.61" height="35.23" class="map__space" />
+									<rect x="139.5" y="501.73" width="35.61" height="35.23" class="map__space" />
+									<rect x="48.3" y="547.25" width="35.61" height="35.23" class="map__space" />
+									<rect x="94.24" y="547.25" width="35.61" height="35.23" class="map__space" />
+									<rect x="139.72" y="547.25" width="35.61" height="35.23" class="map__space" />
+									<rect x="282.3" y="478.13" width="26.26" height="25.99" class="map__space" />
+									<polygon points="218.01 585.07 239.2 597.17 239.2 621.38 218.01 633.49 196.82 621.38 196.82 597.17 218.01 585.07" class="map__space" />
+									<polygon points="410.01 601.42 358.8 778.44 320.06 767.07 372.92 591.6 410.01 601.42" class="map__space" />
+									<polygon points="561.3,603.9 624,777 661.9,763.2 597.7,591.5" class="map__space" />
+								</svg>
+									<div class="level__pins">
+										<a class="pin pin--1-1" data-category="1" data-space="1.01" href="#" aria-label="Pin for Apple Heart">
+											<span class="pin__icon">
+												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+												
+											</span>
+										</a>
+										<a class="pin pin--1-2" data-category="1" data-space="1.02" href="#" aria-label="Pin for Crazy Banana">
+											<span class="pin__icon">
+												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+												
+											</span>
+										</a>
+										<a class="pin pin--1-3" data-category="2" data-space="1.03" href="#" aria-label="Pin for Folding Life">
+											<span class="pin__icon">
+												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+												<svg class="icon icon--logo icon--books"><use xlink:href="#icon-books"></use></svg>
+											</span>
+										</a>
+										<a class="pin pin--1-4" data-category="3" data-space="1.04" href="#" aria-label="Pin for Dress me not">
+											<span class="pin__icon">
+												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+												<svg class="icon icon--logo icon--books"><use xlink:href="#icon-books"></use></svg>
+											</span>
+										</a>
+										<a class="pin pin--1-5" data-category="4" data-space="1.05" href="#" aria-label="Pin for Meditation Garden">
+											<span class="pin__icon">
+												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+												<svg class="icon icon--logo icon--books"><use xlink:href="#icon-books"></use></svg>
+											</span>
+										</a>
+										<a class="pin pin--1-6" data-category="1" data-space="1.06" href="#" aria-label="Pin for Seed of Life">
+											<span class="pin__icon">
+												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+												
+											</span>
+										</a>
+										<a class="pin pin--1-7" data-category="1" data-space="1.07" href="#" aria-label="Pin for Raw Delight">
+											<span class="pin__icon">
+												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+												
+											</span>
+										</a>
+										<a class="pin pin--1-8" data-category="1" data-space="1.08" href="#" aria-label="Pin for The Wizard">
+											<span class="pin__icon">
+												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+												
+											</span>
+										</a>
+										<a class="pin pin--1-9" data-category="1" data-space="1.09" href="#" aria-label="Pin for Smoothies &amp; Soul">
+											<span class="pin__icon">
+												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+												
+											</span>
+										</a>
+									</div>
+								<!-- /level__pins -->
+							</div>
+							<div class="level level--2" aria-label="Level 2">
+								<svg class="map map--2" viewBox="0 0 1200 800" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+									<title>Map Level 2</title>
+									<polygon points="1035.94 787.41 1035.94 423.16 855.37 423.16 855.37 350.52 1187.28 350.52 1187.28 12.59 548.09 12.59 548.09 68.87 437.36 68.87 437.36 12.59 49.37 12.59 49.37 366.5 12.72 366.5 12.72 787.41 356.2 787.41 414.93 584.41 554.4 584.41 627.81 787.41 1035.94 787.41" class="map__ground" />
+									<path d="M1187.28,12.59V350.52H855.37v72.64h180.58V787.41H627.81l-73.41-203H414.93l-58.73,203H12.72V366.5H49.37V12.59h388V68.87H548.08V12.59h639.19M1200,0H535.36V56.28H450.09V0H36.65V353.91H0V800H365.8l2.64-9.13L424.52,597H545.44l70.39,194.65,3,8.35h429.82V410.57H868.09V363.11H1200V0h0Z" class="map__outline" />
+									<polygon points="768.46 722.99 789.65 735.1 789.65 759.31 768.46 771.42 747.27 759.31 747.27 735.1 768.46 722.99" class="map__space" />
+									<rect x="666.88" y="565.62" width="26.26" height="25.99" class="map__space" />
+									<path data-space="2.07" d="M454.76,266.19h63a24.34,24.34,0,0,1,24.47,24.21h0V489.82A24.34,24.34,0,0,1,517.74,514h-63a24.34,24.34,0,0,1-24.47-24.21h0V290.4a24.34,24.34,0,0,1,24.47-24.21h0Z" class="map__space" />
+									<path d="M492.72,123.19c30.57,0,55.36-24.53,55.36-54.78H437.36C437.36,98.67,462.15,123.19,492.72,123.19Z" class="map__space" />
+									<polygon points="898.12 182.42 919.31 194.53 919.31 218.74 898.12 230.85 876.93 218.74 876.93 194.53 898.12 182.42" class="map__space" />
+									<rect x="282.3" y="478.13" width="26.26" height="25.99" class="map__space" />
+									<polygon data-space="2.06" points="395.25 652.42 12.72 652.42 12.72 787.41 356.2 787.41 395.25 652.42" class="map__space" />
+									<rect data-space="2.02" x="12.72" y="366.5" width="157.39" height="212.11" class="map__space" />
+									<rect x="49.37" y="12.59" width="120.74" height="120.74" class="map__space" />
+									<rect data-space="2.01" x="177.56" y="12" width="240.03" height="121.33" class="map__space" />
+									<rect x="49.37" y="170.48" width="60.37" height="60.37" class="map__space" />
+									<rect x="49.37" y="238.6" width="278.23" height="111.92" class="map__space" />
+									<rect data-space="2.05" x="600" y="12" width="93.14" height="249.1" class="map__space" />
+									<rect x="702.59" y="12.59" width="484.68" height="98.51" class="map__space" />
+									<rect data-space="2.03" x="968.07" y="120.1" width="219.21" height="230.42" class="map__space" />
+									<rect x="855.37" y="277.6" width="103.7" height="72.92" class="map__space" />
+									<circle data-space="2.04" cx="680.68" cy="466.59" r="66.59" class="map__space" />
+									<rect data-space="2.08" x="855.37" y="423.16" width="180.58" height="364.25" class="map__space" />
+									<polygon points="627.81 787.41 716.09 787.41 716.09 646.58 576.88 646.58 627.81 787.41" class="map__space" />
+								</svg>
+								<div class="level__pins">
+									<a class="pin pin--2-1" data-category="1" data-space="2.01" href="#" aria-label="Pin for Grilled Chipotle">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+										
+										</span>
+									</a>
+									<a class="pin pin--2-2" data-category="2" data-space="2.02" href="#" aria-label="Pin for Rocketship Tech">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+											<svg class="icon icon--logo icon--books"><use xlink:href="#icon-books"></use></svg>
+										</span>
+									</a>
+									<a class="pin pin--2-3" data-category="2" data-space="2.03" href="#" aria-label="Pin for Which Bug?">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+											<svg class="icon icon--logo icon--books"><use xlink:href="#icon-books"></use></svg>
+										</span>
+									</a>
+									<a class="pin pin--2-4" data-category="3" data-space="2.04" href="#" aria-label="Pin for Cognitio">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+											<svg class="icon icon--logo icon--books"><use xlink:href="#icon-books"></use></svg>
+										</span>
+									</a>
+									<a class="pin pin--2-5" data-category="1" data-space="2.05" href="#" aria-label="Pin for The Eggplanthead">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+											
+										</span>
+									</a>
+									<a class="pin pin--2-6" data-category="1" data-space="2.06" href="#" aria-label="Pin for Superfood">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+										
+										</span>
+									</a>
+									<a class="pin pin--2-7" data-category="3" data-space="2.07" href="#" aria-label="Pin for No Princess">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+											<svg class="icon icon--logo icon--books"><use xlink:href="#icon-books"></use></svg>
+										</span>
+									</a>
+									<a class="pin pin--2-8" data-category="3" data-space="2.08" href="#" aria-label="Pin for Tool Exchange">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+											<svg class="icon icon--logo icon--books"><use xlink:href="#icon-books"></use></svg>
+										</span>
+									</a>
+								</div>
+								<!-- /level__pins -->
+							</div>
+							
+						<!-- /levels -->
+					</div>
+
+					<!-- /mall -->
+					<button class="boxbutton boxbutton--dark open-search" aria-label="Show search"><svg class="icon icon--search"><use xlink:href="#icon-search"></use></svg></button>
+					<nav class="mallnav mallnav--hidden">
+						<button class="boxbutton mallnav__button--up" aria-label="Go up"><svg class="icon icon--angle-down"><use xlink:href="#icon-angle-up"></use></svg></button>
+						<button class="boxbutton boxbutton--dark mallnav__button--all-levels" aria-label="Back to all levels"><svg class="icon icon--stack"><use xlink:href="#icon-stack"></use></svg></button>
+						<button class="boxbutton mallnav__button--down" aria-label="Go down"><svg class="icon icon--angle-down"><use xlink:href="#icon-angle-down"></use></svg></button>
+					</nav>
+					<div class="content">
+						<div class="content__item" data-space="1.01" data-category="1">
+							<h3 class="content__item-title">A001</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 6:30AM &mdash; 11:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 5738902</span>
+								</p>
+								<p class="content__desc">Burdock celery - salsify, tomatillo. Bitter gourd horseradish leaves radicchio, celeriac miner's lettuce kurrat arugula fluted pumpkin turnip, arracacha water spinach nopal.</p>
+							</div>
+						</div>
+						<div class="content__item" data-space="1.02" data-category="1">
+							<h3 class="content__item-title">A002</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 10:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 7822786</span>
+								</p>
+								<p class="content__desc">Malva verticillata cichorium intybus zingiber officinale. Capsicum annuum Grossum group amorphophallus_paeoniifolius celosia argentea. Brassica oleracea Acephala group brassica rapa pervidis or komatsuna group plectranthus spp.</p>
+							</div>
+						</div>
+						<div class="content__item" data-space="1.03" data-category="2">
+							<h3 class="content__item-title">H017</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 10:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 2385641</span>
+								</p>
+								<p class="content__desc">Brassica rapa Pekinensis group crassocephalum spp ipomoea aquatica. Brassica napus Napobrassica group pachyrhizus ahipa.</p>
+							</div>
+						</div>
+						<div class="content__item" data-space="1.04" data-category="3">
+							<h3 class="content__item-title">H018</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 10:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 7830091</span>
+								</p>
+								<p class="content__desc">Glycine max tarhui, chocho arachis hypogaea. Barbarea verna cucurbita spp, eruca sativa dioscorea spp solanum lycopersicum var telfairia occidentalis.</p>
+							</div>
+						</div>
+						<div class="content__item" data-space="1.05" data-category="4">
+							<h3 class="content__item-title">H019</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 10:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 6653929</span>
+								</p>
+								<p class="content__desc">Vernonia calvoana. Talinum fruticosum celosia argentea manihot esculenta beta vulgaris subsp maritima lathyrus tuberosus. Vigna acontifolia amorphophallus_paeoniifolius canna spp valerianella locusta.</p>
+							</div>
+						</div>
+						<div class="content__item" data-space="1.06" data-category="1">
+							<h3 class="content__item-title">Seed of Life</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 10:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 8988650</span>
+								</p>
+								<p class="content__desc">Ullucus tuberosus psoralea esculenta; brassica rapa chinensis group - cichorium intybus. Pisum sativum inula crithmoides brassica napus napobrassica group brassica oleracea taraxacum officinale.</p>
+							</div>
+						</div>
+						<div class="content__item" data-space="1.07" data-category="1">
+							<h3 class="content__item-title">Raw Delight</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 6:30AM &mdash; 09:00PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 9121341</span>
+								</p>
+								<p class="content__desc">Brassica rapa Chinensis group dioscorea spp brassica rapa pekinensis and chinensis groups brassica oleracea pachyrhizus erosus.</p>
+							</div>
+						</div>
+						<div class="content__item" data-space="1.08" data-category="1">
+							<h3 class="content__item-title">The Wizard</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 10:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 8976773</span>
+								</p>
+								<p class="content__desc">Acmella oleracea brassica rapa chinensis group apios americana taraxacum officinale brassica rapa pekinensis group.</p>
+							</div>
+						</div>
+						<div class="content__item" data-space="1.09" data-category="1">
+							<h3 class="content__item-title">Smoothies &amp; Soul</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 8:30AM &mdash; 10:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 6577439</span>
+								</p>
+								<p class="content__desc">Broccoli Rabe kale, beetroot lettuce. Daikon chickweed leek tomatillo, beetroot cress west indian gherkin ricebean black-eyed pea fat hen moth bean! Chard lotus root scallion jícama; ulluco. </p>
+							</div>
+						</div>
+						<div class="content__item" data-space="2.01" data-category="1">
+							<h3 class="content__item-title">A201</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 11:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 9866756</span>
+								</p>
+								<p class="content__desc">Summer purslane horseradish catsear kurrat, winter melon bitter gourd. Tomato, florence fennel; garden rocket;</p>
+							</div>
+						</div>
+						<div class="content__item" data-space="2.02" data-category="2">
+							<h3 class="content__item-title">H019</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 8:30AM &mdash; 11:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 4539810</span>
+								</p>
+								<p class="content__desc">Salsify garlic scallion manioc plectranthus summer purslane water chestnut cucumber radish garlic. Daikon winter melon moth bean.</p>
+							</div>
+						</div>
+						<div class="content__item" data-space="2.03" data-category="2">
+							<h3 class="content__item-title">H019</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 10:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 8865001</span>
+								</p>
+								<p class="content__desc">Sorrel garlic pigeon pea fava bean radish scorzonera lentil. Black-eyed pea samphire sorrel; lotus root arracacha lima bean celeriac chinese artichoke okra.</p>
+							</div>
+						</div>
+						<div class="content__item" data-space="2.04" data-category="3">
+							<h3 class="content__item-title">H019</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 8:30AM &mdash; 11:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 6738982</span>
+								</p>
+								<p class="content__desc">Samphire chaya camas chickweed rutabaga. Soko pumpkin; miner's lettuce ulluco arugula. Peanut jícama spinach taro squash soko tepary bean, bok choy.</p>
+							</div>
+						</div>
+						<div class="content__item" data-space="2.05" data-category="1">
+							<h3 class="content__item-title">The Eggplanthead</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 9:00AM &mdash; 11:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 7846729</span>
+								</p>
+								<p class="content__desc">Ahipa yacón mustard fat hen fava bean mung bean, leek; beetroot - prussian asparagus. </p>
+							</div>
+						</div>
+						<div class="content__item" data-space="2.06" data-category="1">
+							<h3 class="content__item-title">Superfood</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 8:30AM &mdash; 10:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 5630098</span>
+								</p>
+								<p class="content__desc">Mizuna greens; epazote tigernut chard - common bean! Radish chickweed, garden rocket, chickweed, gobo dolichos bean corn salad.</p>
+							</div>
+						</div>
+						<div class="content__item" data-space="2.07" data-category="3">
+							<h3 class="content__item-title">H019</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 6:30AM &mdash; 10:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 6650989</span>
+								</p>
+								<p class="content__desc">Ensete endive fiddlehead endive kurrat - gobo, black-eyed pea bitter gourd pignut. Winter melon swiss chard beet greens fiddlehead; guar.</p>
+							</div>
+						</div>
+						<div class="content__item" data-space="2.08" data-category="3">
+							<h3 class="content__item-title">H019</h3>
+							<div class="content__item-details">
+								<p class="content__meta">
+									<span class="content__meta-item"><strong>Opening Hours:</strong> 7:30AM &mdash; 07:30PM</span> 
+									<span class="content__meta-item"><strong>Phone:</strong> (0) 66 4409098</span>
+								</p>
+								<p class="content__desc">Celeriac lima bean, tepary bean sweet potato or kumara nopal wild leek, elephant garlic carrot. Bitter gourd, prairie turnip tatsoi canna miner's lettuce bitterleaf lizard's tail broadleaf arrowhead gobo; swiss chard pigeon pea leaves.</p>
+							</div>
+						</div>
+
+						<button class="boxbutton boxbutton--dark content__button content__button--hidden" aria-label="Close details"><svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg></button>
+					</div>
+					<!-- content -->
+				</div>
+				<!-- /main -->
+				<div class="spaces-list" id="spaces-list">
+					<div class="search">
+						<input class="search__input" placeholder="Search..." />
+						<button class="boxbutton boxbutton--darker close-search" aria-label="Close details"><svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg></button>
+					</div>
+					<span class="label">
+						<input id="sort-by-name" class="label__checkbox" type="checkbox" aria-label="Show alphabetically"/>
+						<label class="label__text">A - Z</label>
+					</span>
+					<ul class="list grouped-by-category">
+						<li class="list__item" data-level="1" data-category="1" data-space="1.08"><a href="#" class="list__link">A101</a></li>
+						<li class="list__item" data-level="1" data-category="1" data-space="1.01"><a href="#" class="list__link">A102</a></li>
+						<li class="list__item" data-level="1" data-category="1" data-space="1.02"><a href="#" class="list__link">A103</a></li>
+						<li class="list__item" data-level="2" data-category="1" data-space="2.05"><a href="#" class="list__link">H118</a></li>
+						<li class="list__item" data-level="1" data-category="1" data-space="1.09"><a href="#" class="list__link">A104</a></li>
+						<li class="list__item" data-level="1" data-category="1" data-space="1.06"><a href="#" class="list__link">A105</a></li>	
+						<li class="list__item" data-level="1" data-category="1" data-space="1.07"><a href="#" class="list__link">A106</a></li>
+						<li class="list__item" data-level="2" data-category="1" data-space="2.01"><a href="#" class="list__link">H119</a></li>
+						<li class="list__item" data-level="2" data-category="1" data-space="2.06"><a href="#" class="list__link">H120</a></li>	
+						<li class="list__item" data-level="1" data-category="2" data-space="1.03"><a href="#" class="list__link">A106</a></li>
+						<li class="list__item" data-level="2" data-category="2" data-space="2.02"><a href="#" class="list__link">H121</a></li>
+						<li class="list__item" data-level="2" data-category="2" data-space="2.03"><a href="#" class="list__link">H122</a></li>	
+						<li class="list__item" data-level="2" data-category="3" data-space="2.08"><a href="#" class="list__link">H123</a></li>
+						<li class="list__item" data-level="1" data-category="3" data-space="1.04"><a href="#" class="list__link">A106</a></li>
+						<li class="list__item" data-level="2" data-category="3" data-space="2.04"><a href="#" class="list__link">H124</a></li>
+						<li class="list__item" data-level="2" data-category="3" data-space="2.07"><a href="#" class="list__link">H125</a></li>	
+						<li class="list__item" data-level="1" data-category="4" data-space="1.05"><a href="#" class="list__link">A106</a></li>
+		
+					</ul>
+				</div>
+				<!-- /spaces-list -->
+				</div>
+			
+																		
+		</article>
+
+						<!-- Compte -->
+							<article id="compte">
+								<h2 class="major">Compte</h2>
+								<p> C'est sur cette page que vous pourrez créer votre compte MIELL ou vous connecter puis consulter votre emploi du temps et les réservations effectuées.</p>
+								
+								<!-- zone de connexion -->	
+								<div id="container">
+									
+										<label><b>Nom d'utilisateur</b></label>
+										<input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+
+										<label><b>Mot de passe</b></label>
+										<input type="password" placeholder="Entrer le mot de passe" name="password" required>
+
+										<input type="submit" id='submit' value='LOGIN' ><br><br><br>
+
+									</form>
+								</div>
+								
+								<li><a href="#edt">Consulter votre emploi du temps</a><a class="droite" href="" >J'ai oublié mon mot de passe</a></li>
+
+							</article>
+							
+							
+							
+							
+						<!-- Emploi du temps -->
+							<article id="edt">
+							
+								<h2 class="major">Votre emploi du temps</h2>
+							
+							<table>
+
+								<tbody>
+									<tr>
+										<td></td>
+										<td>Lundi</td>
+										<td>Mardi</td>
+										<td>Mercredi</td>
+										<td>Jeudi</td>
+										<td>Vendredi</td>
+										<td>Samedi</td>
+										
+									</tr>
+										<td>8h</td>
+										<td></td>
+										<td></td>
+										<td>B118 Biologie</td>
+										<td></td>
+										<td></td>
+										<td></td>
+									<tr>
+										<td>10h</td>
+										<td></td>
+										<td>Amphi 13</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									
+									</tr>
+									<tr>
+										<td>12h</td>
+										<td></td>
+										<td>A112 P.Mendès</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									
+									</tr>
+									<tr>
+										<td>14h</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>i104 Stendhal</td>
+										<td></td>
+										<td></td>
+									
+									</tr>
+									<tr>
+										<td>16h</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									
+									</tr>
+									<tr>
+										<td>18h</td>
+										<td>006 D.S.U.</td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>B202 Stendhal</td>
+										<td></td>
+									
+									</tr>
+								</tbody>
+							</table>
+							
+							
+							</article>
+							
+							
+
+						<!-- Salles -->
+							<article id="salles">
+								<h2 class="major">Salles</h2>
+									<div>
+										<span class="salle"><img src="images/salle.jpg" alt="" /><br><a href="#salle1">B203 Pierre Mendès</a></span> 
+										<span class="salle"><img src="images/salleordi.jpg" alt="" /><br>J03 Stendhal</span> 
+										<span class="salle"><img src="images/amphi.jpg" alt="" /><br>Amphi 02 ENSEEG</span> 
+										<div class="droite"><label for="site-search"></label><input type="search" id="site-search droite" name="q" style="color:black;" aria-label="Search through site content"><br><button>Search</button></div>
+									</div>
+								<p></p>
+							</article>
+							
+							
+								<!-- Exemple d'une salles avec sa photo, ses infos, et son espace commentaire -->
+									<article id="salle1">
+										<h2 class="major">J03 Stendhal</h2>
+										<span class="salle1"><img src="images/salle.jpg" alt="" /></span>
+										
+									
+									
+									</article>
+
+						<!-- Contact -->
+							<article id="contact">
+								<h2 class="major">Contact</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="4"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+								<ul class="icons">
+									<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</article>
+
+						<!-- Elements -->
+							<article id="elements">
+								<h2 class="major">Elements</h2>
+
+								<section>
+									<h3 class="major">Text</h3>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<h5>Heading Level 5</h5>
+									<h6>Heading Level 6</h6>
+									<hr />
+									<h4>Blockquote</h4>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+									<h4>Preformatted</h4>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">Lists</h3>
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3 class="major">Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Form</h3>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="demo-name">Name</label>
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+											</div>
+											<div class="field half">
+												<label for="demo-email">Email</label>
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+											</div>
+											<div class="field">
+												<label for="demo-category">Category</label>
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="field">
+												<label for="demo-message">Message</label>
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy; BEE</p>
+						<div id="droite" ><label for="site-search"></label><input type="search" id="site-search droite" name="q" style="background: transparent;" aria-label="Search through site content"><br><button>Search</button></div>
+					</footer>
+
+			</div>
+			
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="js/classie.js"></script>
+		<script src="js/list.min.js"></script>
+		<script src="js/main.js"></script>
+
+	</body>
+</html>
