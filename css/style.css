@@ -152,7 +152,7 @@ button:focus {
 
 .mall {
 	position: relative;
-	width: 100%;
+	width: 80%;
 	height: 100%;
 	pointer-events: none;
 	-webkit-perspective: 3500px;
@@ -888,23 +888,7 @@ button:focus {
 .pin--2-7 { top: 34vmin; left: 37vmin; }
 .pin--2-8 { top: 52vmin; left: 74vmin; }
 
-/* Pins for floor 3 */
-.pin--3-1 { top: 17vmin; left: 15vmin; }
-.pin--3-2 { top: 42vmin; left: 5vmin; }
-.pin--3-3 { top: 19vmin; left: 85vmin; }
-.pin--3-4 { top: 61vmin; left: 57vmin; }
-.pin--3-5 { top: 58vmin; left: 25vmin; }
-.pin--3-6 { top: 30vmin; left: 57vmin; }
-.pin--3-7 { top: 32vmin; left: 37vmin; }
 
-/* Pins for floor 4 */
-.pin--4-1 { top: 55vmin; left: 21vmin; }
-.pin--4-2 { top: 18vmin; left: 20vmin; }
-.pin--4-3 { top: 21vmin; left: 88vmin; }
-.pin--4-4 { top: 52vmin; left: 74vmin; }
-.pin--4-5 { top: 33vmin; left: 38vmin; }
-.pin--4-6 { top: 39vmin; left: 56vmin; }
-.pin--4-7 { top: 58vmin; left: 10vmin; }
 
 /* Mobile compatability */
 .open-search,

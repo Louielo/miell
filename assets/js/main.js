@@ -6,10 +6,10 @@
 
 //mon script
 
-
-
-
-
+//$("#map").on("click", function(){
+//		$('#map').hide();
+//		$('#show').show();
+//});
 
 
 
