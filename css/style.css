@@ -413,6 +413,7 @@ button:focus {
 	color: #fff;
 	border: 0;
 	background: #d7d7dc;
+	opacity : 0;	/*HIDDEN*/
 }
 
 .boxbutton--dark {
@@ -603,6 +604,19 @@ button:focus {
 	min-height: 100vh;
 	padding: 5em 0 1em;
 	background: #fff;
+
+	-moz-transform: translateY(0.25rem);
+			-webkit-transform: translateY(0.25rem);
+			-ms-transform: translateY(0.25rem);
+			transform: translateY(0.25rem);
+			-moz-transition: opacity 0.325s ease-in-out, -moz-transform 0.325s ease-in-out;
+			-webkit-transition: opacity 0.325s ease-in-out, -webkit-transform 0.325s ease-in-out;
+			-ms-transition: opacity 0.325s ease-in-out, -ms-transform 0.325s ease-in-out;
+			transition: opacity 0.325s ease-in-out, transform 0.325s ease-in-out;
+
+			background-color: rgba(27, 31, 34, 0.85);
+
+			opacity: 4;
 }
 
 .search {

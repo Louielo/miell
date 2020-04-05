@@ -970,8 +970,8 @@ input, select, textarea {
 	}
 
 		ul.icons li {
-			display: block;
-			padding: 0 0em 0 0;
+			display: inline-block;
+			padding: 0 0.75em 0 0;
 		}
 
 			ul.icons li:last-child {
