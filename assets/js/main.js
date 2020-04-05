@@ -11,6 +11,9 @@
 //		$('#show').show();
 //});
 
+function zoom() {
+     document.html.style.zoom = "70%" 
+}
 
 
 

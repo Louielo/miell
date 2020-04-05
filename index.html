@@ -4,16 +4,7 @@
 Site de réservation de salles
 
 -->
-<script>
-const Wrld = require("wrld.js")
-
-const map = Wrld.map("map", "https://wrld.mp/eb25368", {
-    center: [45.190717, 5.772095],
-    zoom: 16,
-})
-
-</script>
-<html>
+<html onload="zoom()">
 	<head>
 		<title>MIELL</title>
 		<meta charset="utf-8" />
@@ -103,7 +94,6 @@ const map = Wrld.map("map", "https://wrld.mp/eb25368", {
 									
 										<div id="map">
 											<iframe src="https://maps.wrld3d.com/embed/?mapscene=eb25368" width="880" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
-
 										</div>
 									
 				<!-- 3D map -->				
