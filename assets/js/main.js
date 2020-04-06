@@ -15,6 +15,13 @@ function zoom() {
      document.html.style.zoom = "70%" 
 }
 
+$('#buttonbat').click(function(){
+     $('#show').show();
+     $('#map').hide();
+     $('#buttonbat').hide();
+});
+
+
 
 
 (function($) {

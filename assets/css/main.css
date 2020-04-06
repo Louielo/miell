@@ -780,6 +780,7 @@ input, select, textarea {
 
 			margin: 2.5rem 0;
 			width: 40%;
+			position: inline;
 			display: grid;
 			grid-template-columns: repeat(0, 1fr);
 		}
