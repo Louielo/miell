@@ -16,8 +16,13 @@ Site de réservation de salles
 		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<script src="js/modernizr-custom.js"></script>
-		
-		
+		<!-- WRLD MAP 3D -->
+		<script src="wrld.js/dist/wrld.js"></script>
+		<script src="wrld.js/dist/wrld.min.js"></script>
+		<script src="jquery-3.4.1.js"></script>
+	    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css" rel="stylesheet" />
+	    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+	    <script src="https://cdn-webgl.wrld3d.com/wrldjs/addons/indoor_control/latest/indoor_control.js"></script>
 		
 	</head>
 	<body class="is-preload">	
@@ -55,9 +60,6 @@ Site de réservation de salles
 			</defs>
 		</svg>
 		
-		
-		
-		
 	
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -91,11 +93,22 @@ Site de réservation de salles
 						<!-- réservation -->
 							<article id="plan" style="height: 670px">
 								<h2 class="major">Plan</h2>
-									
-										<div id="map">
-											<iframe src="https://maps.wrld3d.com/embed/?mapscene=eb25368" width="880" height="500" frameborder="0" style="border:0" allowfullscreen></iframe>
+										
+										<div id="map" style="position: relative">
+											<iframe src="https://maps.wrld3d.com/embed/?mapscene=eb25368" height="400" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
 										</div>
 									
+										
+										<script>var map = L.Wrld.map("map", "4eaef831258edef1936b434778110ee6", {
+									    	center: [45.190717, 5.772095],
+									   		zoom: 16
+									   	});
+									   	setTimeout(function() {
+								      	map.setView([37.7952, -122.4028], 19, {
+								          animate: false
+								        });
+								      	}, 5000);
+										</script>
 				<!-- 3D map -->				
 
 				
