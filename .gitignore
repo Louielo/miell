@@ -1,7 +1,0 @@
-.DS_Store
-dist/
-node_modules/
-npm-debug.log
-src/*.bk
-src/*.tmp
-tmp/
