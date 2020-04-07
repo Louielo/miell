@@ -5,99 +5,96 @@ Site de réservation de salles
 
 -->
 <html>
-	<head>
-		<title>MIELL</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
-		<link rel="shortcut icon" href="bee.ico">
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/style.css" />
-		<script src="js/modernizr-custom.js"></script>
-		<!-- WRLD MAP 3D -->
-		<script src="wrld.js/dist/wrld.js"></script>
-		<script src="wrld.js/dist/wrld.min.js"></script>
-		<script src="jquery-3.4.1.js"></script>
-	    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css" rel="stylesheet"/>
-	    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-	    <script src="https://cdn-webgl.wrld3d.com/wrldjs/addons/indoor_control/latest/indoor_control.js"></script>
-		
-	</head>
-	<body class="is-preload">	
-		
-		<svg class="hidden">
-			<defs>
-				<symbol id="icon-pin" viewBox="0 0 200 300">
-					<title>pin</title>
-					<path d="M100,21.78A85,85,0,0,0,15.18,106.6c0,18.85,12.08,49.52,36.76,93.9,17.48,31.36,34.7,57.49,35.47,58.6L100,278.22l12.59-19.11c0.69-1.11,18-27.25,35.47-58.6,24.76-44.38,36.76-75.06,36.76-93.9A85,85,0,0,0,100,21.78Z" />
-				</symbol>
-				<symbol id="icon-search" viewBox="0 0 32 32">
-					<title>search</title>
-					<path class="path1" d="M26.819 24.917c0.262 0.262 0.262 0.688 0 0.951l-0.951 0.951c-0.263 0.262-0.688 0.262-0.951 0l-6.656-6.656c-0.072-0.072-0.12-0.158-0.153-0.248-1.365 0.998-3.041 1.593-4.862 1.593-4.562 0-8.261-3.699-8.261-8.261s3.699-8.261 8.261-8.261c4.562 0 8.261 3.699 8.261 8.261 0 1.821-0.595 3.497-1.593 4.862 0.091 0.032 0.176 0.080 0.248 0.153l6.656 6.656zM13.246 7.739c-3.041 0-5.508 2.466-5.508 5.508s2.466 5.508 5.508 5.508 5.508-2.466 5.508-5.508c0-3.041-2.466-5.508-5.508-5.508z"></path>
-				</symbol>
-				<symbol id="icon-stack" viewBox="0 0 32 32">
-					<title>stack</title>
-					<path class="path1" d="M29.143 11.071l-13.143-6.571-13.143 6.571 13.143 6.571 13.143-6.571zM16 6.681l8.781 4.39-8.781 4.39-8.781-4.39 8.781-4.39zM26.51 14.684l2.633 1.316-13.143 6.571-13.143-6.571 2.633-1.316 10.51 5.255zM26.51 19.612l2.633 1.316-13.143 6.571-13.143-6.571 2.633-1.316 10.51 5.255z"></path>
-				</symbol>
-				<symbol id="icon-cross" viewBox="0 0 24 24">
-					<title>cross</title>
-					<path class="path1" d="M18.016 5.125q0.369 0 0.614 0.245t0.245 0.614q0 0.363-0.248 0.611l-5.411 5.405 5.411 5.405q0.248 0.248 0.248 0.611 0 0.369-0.245 0.614t-0.614 0.245q-0.363 0-0.611-0.248l-5.405-5.411-5.405 5.411q-0.248 0.248-0.611 0.248-0.369 0-0.614-0.245t-0.245-0.614q0-0.363 0.248-0.611l5.411-5.405-5.411-5.405q-0.248-0.248-0.248-0.611 0-0.369 0.245-0.614t0.614-0.245q0.363 0 0.611 0.248l5.405 5.411 5.405-5.411q0.248-0.248 0.611-0.248z"></path>
-				</symbol>
-				<symbol id="icon-droplet" viewBox="0 0 32 32">
-					<title>droplet</title>
-					<path class="path1" d="M27.020 14.786c-2.055-5.732-6.41-10.88-11.020-14.786-4.61 3.907-8.965 9.054-11.020 14.786-1.271 3.545-1.396 7.393 0.393 10.794 2.058 3.911 6.207 6.42 10.626 6.42s8.569-2.509 10.626-6.42c1.79-3.401 1.664-7.249 0.393-10.794zM23.086 23.717c-1.369 2.602-4.15 4.283-7.086 4.283-1.723 0-3.391-0.579-4.753-1.583 0.414 0.054 0.832 0.083 1.254 0.083 3.67 0 7.146-2.1 8.856-5.351 1.402-2.665 1.281-5.433 0.746-7.636 0.455 0.88 0.841 1.756 1.151 2.623 0.706 1.971 1.251 4.886-0.168 7.581z"></path>
-				</symbol>
-				
-				<symbol id="icon-books" viewBox="0 0 36 32">
-					<title>books</title>
-					<path class="path1" d="M7 4h-6c-0.55 0-1 0.45-1 1v22c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-22c0-0.55-0.45-1-1-1zM6 10h-4v-2h4v2z"></path>
-					<path class="path2" d="M17 4h-6c-0.55 0-1 0.45-1 1v22c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-22c0-0.55-0.45-1-1-1zM16 10h-4v-2h4v2z"></path>
-					<path class="path3" d="M23.909 5.546l-5.358 2.7c-0.491 0.247-0.691 0.852-0.443 1.343l8.999 17.861c0.247 0.491 0.852 0.691 1.343 0.443l5.358-2.7c0.491-0.247 0.691-0.852 0.443-1.343l-8.999-17.861c-0.247-0.491-0.852-0.691-1.343-0.443z"></path>
-				</symbol>
-				
-			</defs>
-		</svg>
-		
-	
-		<!-- Wrapper -->
-			<div id="wrapper">
-			
-				<!-- Header -->
-					<header id="header">
-						<div class="logo">
-							<span class="iconify" data-icon="mdi:bee" data-inline="false"></span>
-						</div>
-						<div class="content">
-							<div class="inner">
-								<h1>MIELL</h1>
-								<p><a href="https://html5up.net/license"></a> Réservation de salles</p>
-								<p>Consultation de votre emploi du temps</p>
-							</div>
-						</div>
-						<nav>
-							<ul>
-								<li><a href="#plan">Réserver</a></li>
-								<li><a href="#compte">Compte</a></li>
-								<li><a href="#salles">Salles</a></li>
-								<li><a href="#contact">Contact</a></li>
-								<!--<li><a href="#elements">Elements</a></li>-->
-							</ul>
-						</nav>
-						
-					</header>
+<head>
+	<title>MIELL</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<script src="https://code.iconify.design/1/1.0.4/iconify.min.js"></script>
+	<link rel="shortcut icon" href="bee.ico">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<script src="js/modernizr-custom.js"></script>
+	<!-- WRLD MAP 3D -->
+	<script src="wrld.js/dist/wrld.js"></script>
+	<script src="wrld.js/dist/wrld.min.js"></script>
+	<script src="js/jquery-3.4.1.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css" rel="stylesheet"/>
+	<script src="https://cdn-webgl.wrld3d.com/wrldjs/addons/indoor_control/latest/indoor_control.js"></script>
 
-				<!-- Main -->
-					<div id="main" >
-						<!-- réservation -->
-							<article id="plan" style="height: 670px">
-								<h2 class="major">Plan</h2>
-										
-										<div id="map" style="position: relative">
-											<iframe src="https://maps.wrld3d.com/embed/?mapscene=eb25368" height="400" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
-										</div>
-									
+</head>
+<body class="is-preload">	
+
+	<svg class="hidden">
+		<defs>
+			<symbol id="icon-pin" viewBox="0 0 200 300">
+				<title>pin</title>
+				<path d="M100,21.78A85,85,0,0,0,15.18,106.6c0,18.85,12.08,49.52,36.76,93.9,17.48,31.36,34.7,57.49,35.47,58.6L100,278.22l12.59-19.11c0.69-1.11,18-27.25,35.47-58.6,24.76-44.38,36.76-75.06,36.76-93.9A85,85,0,0,0,100,21.78Z" />
+			</symbol>
+			<symbol id="icon-search" viewBox="0 0 32 32">
+				<title>search</title>
+				<path class="path1" d="M26.819 24.917c0.262 0.262 0.262 0.688 0 0.951l-0.951 0.951c-0.263 0.262-0.688 0.262-0.951 0l-6.656-6.656c-0.072-0.072-0.12-0.158-0.153-0.248-1.365 0.998-3.041 1.593-4.862 1.593-4.562 0-8.261-3.699-8.261-8.261s3.699-8.261 8.261-8.261c4.562 0 8.261 3.699 8.261 8.261 0 1.821-0.595 3.497-1.593 4.862 0.091 0.032 0.176 0.080 0.248 0.153l6.656 6.656zM13.246 7.739c-3.041 0-5.508 2.466-5.508 5.508s2.466 5.508 5.508 5.508 5.508-2.466 5.508-5.508c0-3.041-2.466-5.508-5.508-5.508z"></path>
+			</symbol>
+			<symbol id="icon-stack" viewBox="0 0 32 32">
+				<title>stack</title>
+				<path class="path1" d="M29.143 11.071l-13.143-6.571-13.143 6.571 13.143 6.571 13.143-6.571zM16 6.681l8.781 4.39-8.781 4.39-8.781-4.39 8.781-4.39zM26.51 14.684l2.633 1.316-13.143 6.571-13.143-6.571 2.633-1.316 10.51 5.255zM26.51 19.612l2.633 1.316-13.143 6.571-13.143-6.571 2.633-1.316 10.51 5.255z"></path>
+			</symbol>
+			<symbol id="icon-cross" viewBox="0 0 24 24">
+				<title>cross</title>
+				<path class="path1" d="M18.016 5.125q0.369 0 0.614 0.245t0.245 0.614q0 0.363-0.248 0.611l-5.411 5.405 5.411 5.405q0.248 0.248 0.248 0.611 0 0.369-0.245 0.614t-0.614 0.245q-0.363 0-0.611-0.248l-5.405-5.411-5.405 5.411q-0.248 0.248-0.611 0.248-0.369 0-0.614-0.245t-0.245-0.614q0-0.363 0.248-0.611l5.411-5.405-5.411-5.405q-0.248-0.248-0.248-0.611 0-0.369 0.245-0.614t0.614-0.245q0.363 0 0.611 0.248l5.405 5.411 5.405-5.411q0.248-0.248 0.611-0.248z"></path>
+			</symbol>
+			<symbol id="icon-droplet" viewBox="0 0 32 32">
+				<title>droplet</title>
+				<path class="path1" d="M27.020 14.786c-2.055-5.732-6.41-10.88-11.020-14.786-4.61 3.907-8.965 9.054-11.020 14.786-1.271 3.545-1.396 7.393 0.393 10.794 2.058 3.911 6.207 6.42 10.626 6.42s8.569-2.509 10.626-6.42c1.79-3.401 1.664-7.249 0.393-10.794zM23.086 23.717c-1.369 2.602-4.15 4.283-7.086 4.283-1.723 0-3.391-0.579-4.753-1.583 0.414 0.054 0.832 0.083 1.254 0.083 3.67 0 7.146-2.1 8.856-5.351 1.402-2.665 1.281-5.433 0.746-7.636 0.455 0.88 0.841 1.756 1.151 2.623 0.706 1.971 1.251 4.886-0.168 7.581z"></path>
+			</symbol>
+
+			<symbol id="icon-books" viewBox="0 0 36 32">
+				<title>books</title>
+				<path class="path1" d="M7 4h-6c-0.55 0-1 0.45-1 1v22c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-22c0-0.55-0.45-1-1-1zM6 10h-4v-2h4v2z"></path>
+				<path class="path2" d="M17 4h-6c-0.55 0-1 0.45-1 1v22c0 0.55 0.45 1 1 1h6c0.55 0 1-0.45 1-1v-22c0-0.55-0.45-1-1-1zM16 10h-4v-2h4v2z"></path>
+				<path class="path3" d="M23.909 5.546l-5.358 2.7c-0.491 0.247-0.691 0.852-0.443 1.343l8.999 17.861c0.247 0.491 0.852 0.691 1.343 0.443l5.358-2.7c0.491-0.247 0.691-0.852 0.443-1.343l-8.999-17.861c-0.247-0.491-0.852-0.691-1.343-0.443z"></path>
+			</symbol>
+
+		</defs>
+	</svg>
+
+	
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="logo">
+				<span class="iconify" data-icon="mdi:bee" data-inline="false"></span>
+			</div>
+			<div class="content">
+				<div class="inner">
+					<h1>MIELL</h1>
+					<p><a href="https://html5up.net/license"></a> Réservation de salles</p>
+					<p>Consultation de votre emploi du temps</p>
+				</div>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="#plan">Réserver</a></li>
+					<li><a href="#compte">Compte</a></li>
+					<li><a href="#salles">Salles</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<!--<li><a href="#elements">Elements</a></li>-->
+				</ul>
+			</nav>
+
+		</header>
+
+		<!-- Main -->
+		<div id="main" >
+			<!-- réservation -->
+			<article id="plan" style="height: 670px">
+				<h2 class="major">Plan</h2>
+
+				<div id="map" style="position: relative">
+					<iframe src="https://maps.wrld3d.com/embed/?mapscene=eb25368" height="400" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+				</div>
+
 										<!--
 										<script>var map = L.Wrld.map("map", "4eaef831258edef1936b434778110ee6", {
 									    	center: [45.190717, 5.772095],
@@ -111,9 +108,9 @@ Site de réservation de salles
 										</script>
 									-->
 									<input type="button" value="Bâtiment Sciences Po" id="buttonbat"></input>
-				<!-- 3D map -->				
+									<!-- 3D map -->				
 
-				
+
 				<div id="show" class="main" style="width: 100%" hidden><!--//add hidden-->
 
 
@@ -167,62 +164,62 @@ Site de réservation de salles
 									<polygon points="410.01 601.42 358.8 778.44 320.06 767.07 372.92 591.6 410.01 601.42" class="map__space" />
 									<polygon points="561.3,603.9 624,777 661.9,763.2 597.7,591.5" class="map__space" />
 								</svg>
-									<div class="level__pins">
-										<a class="pin pin--1-1" data-category="1" data-space="1.01" href="#" aria-label="Pin for Apple Heart">
-											<span class="pin__icon">
-												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
-												
-											</span>
-										</a>
-										<a class="pin pin--1-2" data-category="1" data-space="1.02" href="#" aria-label="Pin for Crazy Banana">
-											<span class="pin__icon">
-												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
-												
-											</span>
-										</a>
-										<a class="pin pin--1-3" data-category="2" data-space="1.03" href="#" aria-label="Pin for Folding Life">
-											<span class="pin__icon">
-												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
-												<svg class="icon icon--logo icon--books"><use xlink:href="#icon-books"></use></svg>
-											</span>
-										</a>
-										<a class="pin pin--1-4" data-category="3" data-space="1.04" href="#" aria-label="Pin for Dress me not">
-											<span class="pin__icon">
-												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
-												<svg class="icon icon--logo icon--books"><use xlink:href="#icon-books"></use></svg>
-											</span>
-										</a>
-										<a class="pin pin--1-5" data-category="4" data-space="1.05" href="#" aria-label="Pin for Meditation Garden">
-											<span class="pin__icon">
-												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
-												<svg class="icon icon--logo icon--books"><use xlink:href="#icon-books"></use></svg>
-											</span>
-										</a>
-										<a class="pin pin--1-6" data-category="1" data-space="1.06" href="#" aria-label="Pin for Seed of Life">
-											<span class="pin__icon">
-												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
-												
-											</span>
-										</a>
-										<a class="pin pin--1-7" data-category="1" data-space="1.07" href="#" aria-label="Pin for Raw Delight">
-											<span class="pin__icon">
-												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
-												
-											</span>
-										</a>
-										<a class="pin pin--1-8" data-category="1" data-space="1.08" href="#" aria-label="Pin for The Wizard">
-											<span class="pin__icon">
-												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
-												
-											</span>
-										</a>
-										<a class="pin pin--1-9" data-category="1" data-space="1.09" href="#" aria-label="Pin for Smoothies &amp; Soul">
-											<span class="pin__icon">
-												<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
-												
-											</span>
-										</a>
-									</div>
+								<div class="level__pins">
+									<a class="pin pin--1-1" data-category="1" data-space="1.01" href="#" aria-label="Pin for Apple Heart">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+
+										</span>
+									</a>
+									<a class="pin pin--1-2" data-category="1" data-space="1.02" href="#" aria-label="Pin for Crazy Banana">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+
+										</span>
+									</a>
+									<a class="pin pin--1-3" data-category="2" data-space="1.03" href="#" aria-label="Pin for Folding Life">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+											<svg class="icon icon--logo icon--books"><use xlink:href="#icon-books"></use></svg>
+										</span>
+									</a>
+									<a class="pin pin--1-4" data-category="3" data-space="1.04" href="#" aria-label="Pin for Dress me not">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+											<svg class="icon icon--logo icon--books"><use xlink:href="#icon-books"></use></svg>
+										</span>
+									</a>
+									<a class="pin pin--1-5" data-category="4" data-space="1.05" href="#" aria-label="Pin for Meditation Garden">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+											<svg class="icon icon--logo icon--books"><use xlink:href="#icon-books"></use></svg>
+										</span>
+									</a>
+									<a class="pin pin--1-6" data-category="1" data-space="1.06" href="#" aria-label="Pin for Seed of Life">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+
+										</span>
+									</a>
+									<a class="pin pin--1-7" data-category="1" data-space="1.07" href="#" aria-label="Pin for Raw Delight">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+
+										</span>
+									</a>
+									<a class="pin pin--1-8" data-category="1" data-space="1.08" href="#" aria-label="Pin for The Wizard">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+
+										</span>
+									</a>
+									<a class="pin pin--1-9" data-category="1" data-space="1.09" href="#" aria-label="Pin for Smoothies &amp; Soul">
+										<span class="pin__icon">
+											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
+
+										</span>
+									</a>
+								</div>
 								<!-- /level__pins -->
 							</div>
 							<div class="level level--2" aria-label="Level 2">
@@ -254,7 +251,7 @@ Site de réservation de salles
 									<a class="pin pin--2-1" data-category="1" data-space="2.01" href="#" aria-label="Pin for Grilled Chipotle">
 										<span class="pin__icon">
 											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
-										
+
 										</span>
 									</a>
 									<a class="pin pin--2-2" data-category="2" data-space="2.02" href="#" aria-label="Pin for Rocketship Tech">
@@ -278,13 +275,13 @@ Site de réservation de salles
 									<a class="pin pin--2-5" data-category="1" data-space="2.05" href="#" aria-label="Pin for The Eggplanthead">
 										<span class="pin__icon">
 											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
-											
+
 										</span>
 									</a>
 									<a class="pin pin--2-6" data-category="1" data-space="2.06" href="#" aria-label="Pin for Superfood">
 										<span class="pin__icon">
 											<svg class="icon icon--pin"><use xlink:href="#icon-pin"></use></svg>
-										
+
 										</span>
 									</a>
 									<a class="pin pin--2-7" data-category="3" data-space="2.07" href="#" aria-label="Pin for No Princess">
@@ -302,293 +299,281 @@ Site de réservation de salles
 								</div>
 								<!-- /level__pins -->
 							</div>
-							
-						<!-- /levels -->
-					</div>
 
-					<!-- /mall -->
-					
-					
-					<nav class="mallnav mallnav--hidden">
-						<button class="boxbutton mallnav__button--up" aria-label="Go up"><svg class="icon icon--angle-down"><use xlink:href="#icon-angle-up"></use></svg></button>
-						<button class="boxbutton boxbutton--dark mallnav__button--all-levels" aria-label="Back to all levels"><svg class="icon icon--stack"><use xlink:href="#icon-stack"></use></svg></button>
-						<button class="boxbutton mallnav__button--down" aria-label="Go down"><svg class="icon icon--angle-down"><use xlink:href="#icon-angle-down"></use></svg></button>
-					</nav>
-					
-					<!-- content -->
-				</div>				<!-- /main -->
-				<div class="spaces-list" id="spaces-list">
-					<div class="search">
-						<input class="search__input" placeholder="Search..." />
-						<button class="boxbutton boxbutton--darker close-search" aria-label="Close details"><svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg></button>
+							<!-- /levels -->
+						</div>
+
+						<!-- /mall -->
+
+
+						<nav class="mallnav mallnav--hidden">
+							<button class="boxbutton mallnav__button--up" aria-label="Go up"><svg class="icon icon--angle-down"><use xlink:href="#icon-angle-up"></use></svg></button>
+							<button class="boxbutton boxbutton--dark mallnav__button--all-levels" aria-label="Back to all levels"><svg class="icon icon--stack"><use xlink:href="#icon-stack"></use></svg></button>
+							<button class="boxbutton mallnav__button--down" aria-label="Go down"><svg class="icon icon--angle-down"><use xlink:href="#icon-angle-down"></use></svg></button>
+						</nav>
+
+						<!-- content -->
+					</div>				<!-- /main -->
+					<div class="spaces-list" id="spaces-list">
+						<div class="search">
+							<input class="search__input" placeholder="Search..." />
+							<button class="boxbutton boxbutton--darker close-search" aria-label="Close details"><svg class="icon icon--cross"><use xlink:href="#icon-cross"></use></svg></button>
+						</div>
+						<ul class="list grouped-by-category">
+							<li class="list__item" data-level="1" data-category="1" data-space="1.08"><a href="#" class="list__link">A101</a></li>
+							<li class="list__item" data-level="1" data-category="1" data-space="1.01"><a href="#" class="list__link">A102</a></li>
+							<li class="list__item" data-level="1" data-category="1" data-space="1.02"><a href="#" class="list__link">A103</a></li>
+							<li class="list__item" data-level="2" data-category="1" data-space="2.05"><a href="#" class="list__link">H118</a></li>
+							<li class="list__item" data-level="1" data-category="1" data-space="1.09"><a href="#" class="list__link">A104</a></li>
+							<li class="list__item" data-level="1" data-category="1" data-space="1.06"><a href="#" class="list__link">A105</a></li>	
+							<li class="list__item" data-level="1" data-category="1" data-space="1.07"><a href="#" class="list__link">A106</a></li>
+							<li class="list__item" data-level="2" data-category="1" data-space="2.01"><a href="#" class="list__link">H119</a></li>
+							<li class="list__item" data-level="2" data-category="1" data-space="2.06"><a href="#" class="list__link">H120</a></li>	
+							<li class="list__item" data-level="1" data-category="2" data-space="1.03"><a href="#" class="list__link">A106</a></li>
+							<li class="list__item" data-level="2" data-category="2" data-space="2.02"><a href="#" class="list__link">H121</a></li>
+							<li class="list__item" data-level="2" data-category="2" data-space="2.03"><a href="#" class="list__link">H122</a></li>	
+							<li class="list__item" data-level="2" data-category="3" data-space="2.08"><a href="#" class="list__link">H123</a></li>
+							<li class="list__item" data-level="1" data-category="3" data-space="1.04"><a href="#" class="list__link">A106</a></li>
+							<li class="list__item" data-level="2" data-category="3" data-space="2.04"><a href="#" class="list__link">H124</a></li>
+							<li class="list__item" data-level="2" data-category="3" data-space="2.07"><a href="#" class="list__link">H125</a></li>	
+							<li class="list__item" data-level="1" data-category="4" data-space="1.05"><a href="#" class="list__link">A106</a></li>
+
+						</ul>
 					</div>
-					<ul class="list grouped-by-category">
-						<li class="list__item" data-level="1" data-category="1" data-space="1.08"><a href="#" class="list__link">A101</a></li>
-						<li class="list__item" data-level="1" data-category="1" data-space="1.01"><a href="#" class="list__link">A102</a></li>
-						<li class="list__item" data-level="1" data-category="1" data-space="1.02"><a href="#" class="list__link">A103</a></li>
-						<li class="list__item" data-level="2" data-category="1" data-space="2.05"><a href="#" class="list__link">H118</a></li>
-						<li class="list__item" data-level="1" data-category="1" data-space="1.09"><a href="#" class="list__link">A104</a></li>
-						<li class="list__item" data-level="1" data-category="1" data-space="1.06"><a href="#" class="list__link">A105</a></li>	
-						<li class="list__item" data-level="1" data-category="1" data-space="1.07"><a href="#" class="list__link">A106</a></li>
-						<li class="list__item" data-level="2" data-category="1" data-space="2.01"><a href="#" class="list__link">H119</a></li>
-						<li class="list__item" data-level="2" data-category="1" data-space="2.06"><a href="#" class="list__link">H120</a></li>	
-						<li class="list__item" data-level="1" data-category="2" data-space="1.03"><a href="#" class="list__link">A106</a></li>
-						<li class="list__item" data-level="2" data-category="2" data-space="2.02"><a href="#" class="list__link">H121</a></li>
-						<li class="list__item" data-level="2" data-category="2" data-space="2.03"><a href="#" class="list__link">H122</a></li>	
-						<li class="list__item" data-level="2" data-category="3" data-space="2.08"><a href="#" class="list__link">H123</a></li>
-						<li class="list__item" data-level="1" data-category="3" data-space="1.04"><a href="#" class="list__link">A106</a></li>
-						<li class="list__item" data-level="2" data-category="3" data-space="2.04"><a href="#" class="list__link">H124</a></li>
-						<li class="list__item" data-level="2" data-category="3" data-space="2.07"><a href="#" class="list__link">H125</a></li>	
-						<li class="list__item" data-level="1" data-category="4" data-space="1.05"><a href="#" class="list__link">A106</a></li>
+					<!-- /spaces-list -->
+
+				</div>
+
+
+
+			</article>
+
+			<!-- Compte -->
+			<article id="compte">
+				<h2 class="major">Compte</h2>
+				<p> C'est sur cette page que vous pourrez créer votre compte MIELL ou vous connecter puis consulter votre emploi du temps et les réservations effectuées.</p>
+
+				<!-- zone de connexion -->	
+				<div id="container">
+
+					<label><b>Nom d'utilisateur</b></label>
+					<input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+
+					<label><b>Mot de passe</b></label>
+					<input type="password" placeholder="Entrer le mot de passe" name="password" required>
+
+					<input type="submit" id='submit' value='LOGIN' >
+					<img src="images/beeload.gif" alt="" style="width:150px; margin: -10px 0 -100px 80px;"/>
+
+				</div>
+			
+			<li><a href="#edt">Consulter votre emploi du temps</a><a class="droite" href="" >J'ai oublié mon mot de passe</a></li>
+
+			</article>
 		
-					</ul>
-				</div>
-				<!-- /spaces-list -->
-				
-				</div>
-				
-			
-																		
-		</article>
+		
+		
+		
+		<!-- Emploi du temps -->
+			<article id="edt">
 
-						<!-- Compte -->
-							<article id="compte">
-								<h2 class="major">Compte</h2>
-								<p> C'est sur cette page que vous pourrez créer votre compte MIELL ou vous connecter puis consulter votre emploi du temps et les réservations effectuées.</p>
-								
-								<!-- zone de connexion -->	
-								<div id="container">
-									
-										<label><b>Nom d'utilisateur</b></label>
-										<input type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+			<h2 class="major">Votre emploi du temps</h2>
 
-										<label><b>Mot de passe</b></label>
-										<input type="password" placeholder="Entrer le mot de passe" name="password" required>
+				<table>
 
-										<input type="submit" id='submit' value='LOGIN' >
-										<img src="images/beeload.gif" alt="" style="width:150px; margin: -10px 0 -100px 80px;"/>
+					<tbody>
+						<tr>
+							<td></td>
+							<td>Lundi</td>
+							<td>Mardi</td>
+							<td>Mercredi</td>
+							<td>Jeudi</td>
+							<td>Vendredi</td>
+							<td>Samedi</td>
 
-									</form>
-								</div>
-								
-								<li><a href="#edt">Consulter votre emploi du temps</a><a class="droite" href="" >J'ai oublié mon mot de passe</a></li>
+						</tr>
+						<td>8h</td>
+						<td></td>
+						<td></td>
+						<td>B118 Biologie</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<tr>
+							<td>10h</td>
+							<td></td>
+							<td>Amphi 13</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
 
-							</article>
-							
-							
-							
-							
-						<!-- Emploi du temps -->
-							<article id="edt">
-							
-								<h2 class="major">Votre emploi du temps</h2>
-							
-							<table>
+						</tr>
+						<tr>
+							<td>12h</td>
+							<td></td>
+							<td>A112 P.Mendès</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
 
-								<tbody>
-									<tr>
-										<td></td>
-										<td>Lundi</td>
-										<td>Mardi</td>
-										<td>Mercredi</td>
-										<td>Jeudi</td>
-										<td>Vendredi</td>
-										<td>Samedi</td>
-										
-									</tr>
-										<td>8h</td>
-										<td></td>
-										<td></td>
-										<td>B118 Biologie</td>
-										<td></td>
-										<td></td>
-										<td></td>
-									<tr>
-										<td>10h</td>
-										<td></td>
-										<td>Amphi 13</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									
-									</tr>
-									<tr>
-										<td>12h</td>
-										<td></td>
-										<td>A112 P.Mendès</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									
-									</tr>
-									<tr>
-										<td>14h</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td>i104 Stendhal</td>
-										<td></td>
-										<td></td>
-									
-									</tr>
-									<tr>
-										<td>16h</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									
-									</tr>
-									<tr>
-										<td>18h</td>
-										<td>006 D.S.U.</td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td>B202 Stendhal</td>
-										<td></td>
-									
-									</tr>
-								</tbody>
-							</table>
-							
-							
-							</article>
-							
-							
+						</tr>
+						<tr>
+							<td>14h</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>i104 Stendhal</td>
+							<td></td>
+							<td></td>
 
-						<!-- Salles -->
-							<article id="salles">
-								<div class="big-demo go-wide" data-js="filtering-demo"/>
-								<h2 class="major">Salles</h2>
-								<div id="trier" class="filter-button-group button-group js-radio-button-group">
-									<button class="button is-checked" data-filter="*">Tout afficher</button>
-							        <button class="button" data-filter=".ordi">Avec ordi</button>
-							        <button class="button" data-filter=".amphi">Amphi</button>
-							        <button class="button" data-filter=".labo">Laboratoires</button>
-								</div>
-								<!--
-								<pre class="code-display"><code>$grid.isotope({...})</code></pre>
-								-->
-									<div class="grid">
-										<div class="salle element-item sallenormal " data-category="sallenormal">
-											<img src="images/salle.jpg" alt="" /><br>
-											<a href="#salle1"></a>
-											<p class="name">B203 Pierre Mendès</p>
-											<p class="effectif">45</p>										
-										</div> 
-										<div class="salle element-item ordi " data-category="ordi">
-											<a href=""></a>
-											<img src="images/salleordi.jpg" alt="" /><br>
-											<p class="name">J03 Stendhal</p>
-											<p class="effectif">20</p>
-										</div> 
-										<div class="salle element-item amphi " data-category="amphi">
-											<a href=""></a>
-											<img src="images/amphi.jpg" alt="" /><br>
-											<p class="name">Amphi 02 ENSEEG</p>
-											<p class="effectif">210</p>
-										</div>
-										<div class="salle element-item sallenormal " data-category="sallenormal">
-											<a href=""></a>
-											<img src="images/salle2.jpg" alt="" /><br>
-											<p class="name">A102 Pierre Mendès</p>
-											<p class="effectif">40</p>											
-										</div> 
-										<div class="salle element-item ordi " data-category="ordi">
-											<a href=""></a>
-											<img src="images/ordi2.jpg" alt="" /><br>
-											<p class="name">i12 Stendhal</p>
-											<p class="effectif">24</p>
-										</div> 
-										<div class="salle element-item amphi " data-category="amphi">
-											<a href=""></a>
-											<img src="images/amphi2.jpg" alt="" /><br>
-											<p class="name">Amphi 01 ENSEEG</p>
-											<p class="effectif">120</p>
-										</div>
-										<div class="salle element-item labo " data-category="labo">
-											<a href=""></a>
-											<img src="images/labo.jpg" alt="" /><br>
-											<p class="name">23 Sciences Po</p>
-											<p class="effectif">24</p>
-										</div> 
-										<div class="salle element-item amphi " data-category="amphi">
-											<a href=""></a>
-											<img src="images/amphi3.jpg" alt="" /><br>
-											<p class="name">Amphi 01 ENSEEG</p>
-											<p class="effectif">120</p>
-										</div>
-										<div class="salle element-item labo " data-category="labo">
-											<a href=""></a>
-											<img src="images/labo2.jpg" alt="" /><br>
-											<p class="name">12 Sciences Po</p>
-											<p class="effectif">40</p>											
-										</div> 
-										
+						</tr>
+						<tr>
+							<td>16h</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
 
-									</div>
-										<!--
-										<div class="droite"><label for="site-search"></label><input type="search" id="site-search droite" name="q" style="color:black;" aria-label="Search through site content"><br><button>Search</button></div>
-										-->
-									
-								<p></p>
-								</div>
-							</article>
-							
-							
-								<!-- Exemple d'une salles avec sa photo, ses infos, et son espace commentaire -->
-									<article id="salle1">
-										<h2 class="major">J03 Stendhal</h2>
-										<span class="salle1"><img src="images/salle.jpg" alt="" /></span>
-										
-									
-									
-									</article>
+						</tr>
+						<tr>
+							<td>18h</td>
+							<td>006 D.S.U.</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>B202 Stendhal</td>
+							<td></td>
 
-						<!-- Contact -->
-							<article id="contact">
-								<h2 class="major">Contact</h2>
+						</tr>
+					</tbody>
+				</table>
 
-								<ul class="icons">
-									<li><a href="#" class="icon brands fa-twitter"><span class="label">Le Twitter de MIELL</span></a></li>
-									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Le Facebook de MIELL</span></a></li>
-									<li><a href="#" class="icon brands fa-github"><span class="label">Le GitHub de MIELL</span></a></li>
-								</ul>
-							</article>
 
-						<!-- Elements -->
-							</div>
+			</article>
+		
+		
 
-				<!-- Footer -->
-					<footer id="footer">
-						<p class="copyright">&copy; BEE</p>
-						<!-- SEARCH BUTTON
-						<div id="droite" ><label for="site-search"></label><input type="search" id="site-search droite" name="q" style="background: transparent;" aria-label="Search through site content"><button>Search</button></div>
+		<!-- Salles -->
+			<article id="salles">
+				<div class="big-demo go-wide" data-js="filtering-demo"/>
+					<h2 class="major">Salles</h2>
+					<div id="trier" class="filter-button-group button-group js-radio-button-group">
+						<button class="button is-checked" data-filter="*">Tout afficher</button>
+						<button class="button" data-filter=".ordi">Avec ordi</button>
+						<button class="button" data-filter=".amphi">Amphi</button>
+						<button class="button" data-filter=".labo">Laboratoires</button>
+					</div>
+					<!--
+					<pre class="code-display"><code>$grid.isotope({...})</code></pre>
+				-->
+					<div class="grid">
+						<div class="salle element-item sallenormal " data-category="sallenormal">
+							<img src="images/salle.jpg" alt="" /><br>
+							<a href="#salle1"></a>
+							<p class="name">B203 Pierre Mendès</p>
+							<p class="effectif">45</p>										
+						</div> 
+						<div class="salle element-item ordi " data-category="ordi">
+							<a href=""></a>
+							<img src="images/salleordi.jpg" alt="" /><br>
+							<p class="name">J03 Stendhal</p>
+							<p class="effectif">20</p>
+						</div> 
+						<div class="salle element-item amphi " data-category="amphi">
+							<a href=""></a>
+							<img src="images/amphi.jpg" alt="" /><br>
+							<p class="name">Amphi 02 ENSEEG</p>
+							<p class="effectif">210</p>
+						</div>
+						<div class="salle element-item sallenormal " data-category="sallenormal">
+							<a href=""></a>
+							<img src="images/salle2.jpg" alt="" /><br>
+							<p class="name">A102 Pierre Mendès</p>
+							<p class="effectif">40</p>											
+						</div> 
+						<div class="salle element-item ordi " data-category="ordi">
+							<a href=""></a>
+							<img src="images/ordi2.jpg" alt="" /><br>
+							<p class="name">i12 Stendhal</p>
+							<p class="effectif">24</p>
+						</div> 
+						<div class="salle element-item amphi " data-category="amphi">
+							<a href=""></a>
+							<img src="images/amphi2.jpg" alt="" /><br>
+							<p class="name">Amphi 01 ENSEEG</p>
+							<p class="effectif">120</p>
+						</div>
+						<div class="salle element-item labo " data-category="labo">
+							<a href=""></a>
+							<img src="images/labo.jpg" alt="" /><br>
+							<p class="name">23 Sciences Po</p>
+							<p class="effectif">24</p>
+						</div> 
+						<div class="salle element-item amphi " data-category="amphi">
+							<a href=""></a>
+							<img src="images/amphi3.jpg" alt="" /><br>
+							<p class="name">Amphi 01 ENSEEG</p>
+							<p class="effectif">120</p>
+						</div>
+						<div class="salle element-item labo " data-category="labo">
+							<a href=""></a>
+							<img src="images/labo2.jpg" alt="" /><br>
+							<p class="name">12 Sciences Po</p>
+							<p class="effectif">40</p>											
+						</div>
+					</div>
+							<!--
+							<div class="droite"><label for="site-search"></label><input type="search" id="site-search droite" name="q" style="color:black;" aria-label="Search through site content"><br><button>Search</button></div>
 						-->
-					</footer>
+				</div>
+			</article>
+		
+		
+		<!-- Exemple d'une salles avec sa photo, ses infos, et son espace commentaire -->
+			<article id="salle1">
+				<h2 class="major">J03 Stendhal</h2>
+				<span class="salle1"><img src="images/salle.jpg" alt="" /></span>
+			</article>
 
-			</div>
-			
+		<!-- Contact -->
+			<article id="contact">
+				<h2 class="major">Contact</h2>
 
-		<!-- BG -->
-			<div id="bg"></div>
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-twitter"><span class="label">Le Twitter de MIELL</span></a></li>
+					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Le Facebook de MIELL</span></a></li>
+					<li><a href="#" class="icon brands fa-github"><span class="label">Le GitHub de MIELL</span></a></li>
+				</ul>
+			</article>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-			<script src="js/classie.js"></script>
-			<script src="js/list.min.js"></script>
-			<script src="js/main.js"></script>
-			<!-- FILTERING -->
-			<script src="js/isotope-docs.min.js?6"></script>
+		</div> <!-- end main -->
 
-	</body>
+	<!-- Footer -->
+	<footer id="footer">
+		<p class="copyright">&copy; BEE</p>
+	<!-- SEARCH BUTTON
+	<div id="droite" ><label for="site-search"></label><input type="search" id="site-search droite" name="q" style="background: transparent;" aria-label="Search through site content"><button>Search</button></div>
+	-->
+	</footer>
+</div> <!-- end wrapper -->
+
+<!-- BG -->
+<div id="bg"></div>
+
+<!-- Scripts -->
+<script src="js/jquery.min.js"></script>
+<script src="js/browser.min.js"></script>
+<script src="js/breakpoints.min.js"></script>
+<script src="js/util.js"></script>
+<script src="js/classie.js"></script>
+<script src="js/list.min.js"></script>
+<script src="js/main.js"></script>
+<!-- FILTER SALLES -->
+<script src="js/isotope-docs.min.js?6"></script>
+
+</body>
 </html>
