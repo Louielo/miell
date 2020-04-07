@@ -646,7 +646,7 @@ BATIMENT MAP
 		hideSurroundings();
 		
 		// show mall nav ctrls
-		showMallNav();
+		// showMallNav();
 
 		// filter the spaces for this level
 		showLevelSpaces();
