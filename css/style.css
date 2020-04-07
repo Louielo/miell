@@ -218,7 +218,7 @@ input, select, textarea {
 		-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-		border-bottom: dotted 1px rgba(255, 255, 255, 0.5);
+		border-bottom: 1px rgba(255, 255, 255, 0.5);
 		text-decoration: none;
 		color: inherit;
 	}
@@ -1818,9 +1818,17 @@ td:hover, .salle:hover, .salleordi:hover, .salleamphi:hover {
 			opacity: 0;
 		}
 
+
+
+
 /*
 COMMENTAIRES
 */
+
+nav ul li a {
+	text-decoration: none;
+}
+
 
 .detailBox {
     width:95%;
@@ -1840,7 +1848,7 @@ COMMENTAIRES
 
 .commentBox {
     padding:10px;
-    border-top:1px dotted #bbb;
+    border-top:1px solid #bbb;
 }
 .commentBox .form-group:first-child, .actionBox .form-group:first-child {
     width:80%;
@@ -1857,7 +1865,7 @@ COMMENTAIRES
 .commentList {
     padding:0;
     list-style:none;
-    max-height:250px;
+    max-height:285px;
     overflow:auto;
 }
 .commentList li {
@@ -1887,7 +1895,7 @@ COMMENTAIRES
     font-size:11px;
 }
 .actionBox {
-    border-top:1px dotted #bbb;
+    border-top:1px solid #bbb;
     padding:10px;
 }
 
