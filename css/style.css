@@ -1868,8 +1868,9 @@ COMMENTAIRES
     display:table-cell;
 }
 .commenterImage {
-    width:30px;
-    margin-right:5px;
+    width:45px;
+    margin-right:9px;
+    margin-top: 5px;
     height:100%;
     float:left;
 }
