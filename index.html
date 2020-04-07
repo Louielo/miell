@@ -462,13 +462,17 @@ Site de réservation de salles
 
 						<!-- Salles -->
 							<article id="salles">
+								<div class="big-demo go-wide" data-js="filtering-demo"/>
 								<h2 class="major">Salles</h2>
-								<div id="trier">
+								<div id="trier" class="filter-button-group button-group js-radio-button-group">
 									<button class="button is-checked" data-filter="*">Tout afficher</button>
 							        <button class="button" data-filter=".ordi">Avec ordi</button>
 							        <button class="button" data-filter=".amphi">Amphi</button>
 								</div>
-									<div>
+								<!--
+								<pre class="code-display"><code>$grid.isotope({...})</code></pre>
+								-->
+									<div class="grid">
 										<div class="salle element-item sallenormal " data-category="sallenormal">
 											<img src="images/salle.jpg" alt="" /><br>
 											<a href="#salle1"></a>
@@ -481,35 +485,36 @@ Site de réservation de salles
 											<p class="name">J03 Stendhal</p>
 											<p class="effectif">20</p>
 										</div> 
-										<div class="salleamphi">
+										<div class="salleamphi element-item amphi " data-category="amphi">
 											<a href=""></a>
 											<img src="images/amphi.jpg" alt="" /><br>
 											<p class="name">Amphi 02 ENSEEG</p>
 											<p class="effectif">210</p>
 										</div>
-										<div class="salle">
+										<div class="salle element-item sallenormal " data-category="sallenormal">
 											<a href=""></a>
 											<img src="images/salle.jpg" alt="" /><br>
 											<p class="name">B203 Pierre Mendès</p>
 											<p class="effectif">40</p>											
 										</div> 
-										<div class="salleordi">
+										<div class="salleordi element-item ordi " data-category="ordi">
 											<a href=""></a>
 											<img src="images/salleordi.jpg" alt="" /><br>
 											<p class="name">J03 Stendhal</p>
 											<p class="effectif">24</p>
 										</div> 
-										<div class="salleamphi">
+										<div class="salleamphi element-item amphi " data-category="amphi">
 											<a href=""></a>
 											<img src="images/amphi.jpg" alt="" /><br>
 											<p class="name">Amphi 02 ENSEEG</p>
 											<p class="effectif">120</p>
 										</div>
 
-
-										<div class="droite"><label for="site-search"></label><input type="search" id="site-search droite" name="q" style="color:black;" aria-label="Search through site content"><br><button>Search</button></div>
 									</div>
+										<div class="droite"><label for="site-search"></label><input type="search" id="site-search droite" name="q" style="color:black;" aria-label="Search through site content"><br><button>Search</button></div>
+									
 								<p></p>
+								</div>
 							</article>
 							
 							
