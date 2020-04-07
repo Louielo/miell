@@ -22,6 +22,11 @@ $('#buttonbat').click(function(){
 });
 
 
+//TRIER
+
+
+
+
 
 
 (function($) {

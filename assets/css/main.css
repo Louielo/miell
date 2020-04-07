@@ -776,18 +776,18 @@ input, select, textarea {
 
 		}
 		
-		.salle {
+		.salle, .salleamphi, .salleordi {
+			width: 30%;
+			position: relative;
+			float: left;
+			margin: 5px;
+  			padding: 10px;
 
-			margin: 2.5rem 0;
-			width: 40%;
-			position: inline;
-			display: grid;
-			grid-template-columns: repeat(0, 1fr);
 		}
-			.salle img{
+			.salle img, .salleamphi img, .salleordi img{
 
 				margin: 0 0 0rem 0;
-				width: 60%;
+				width: 100%;
 			
 			}
 
@@ -1105,7 +1105,7 @@ input, select, textarea {
 		text-transform: uppercase;
 		white-space: nowrap;
 	}
-td:hover, .salle:hover {
+td:hover, .salle:hover, .salleordi:hover, .salleamphi:hover {
   background-color: rgba(255, 255, 255, 0.075);;
 
 }
