@@ -1,12 +1,18 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,600italic,300,600");
 
-
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
 
 #container{
     width:400px;
     margin:0 auto;
-    margin-top:10%;
+    margin-top:4%;
 }
 /* Bordered form */
 form {
@@ -831,8 +837,7 @@ input, select, textarea {
   height: 150px;
   margin: 5px;
   padding: 10px;
-  background: #888;
-  color: #262524;
+
 }
 .element-item img {
 	width : 100%;
